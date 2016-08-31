@@ -1,2 +1,14 @@
 .idea
 *.iml
+IntelliLang.xml
+jdk.table.xml
+_windows
+debugger.renderers.xml
+debugger.xml
+gradle.run.settings.xml
+inspection
+diff.xml
+project.default.xml
+vcs.xml
+mavenVersion.xml
+ui.lnf.xml
