@@ -18,9 +18,9 @@ public class LoginPage {
     @FindBy (name="username")
     private WebElement userName;
 
-    // Passwort
-    @FindBy (name="passwort")
-    private WebElement passWort;
+    // Password
+    @FindBy (name="password")
+    private WebElement password;
 
     // Submit
     @FindBy(className="button")
@@ -35,9 +35,9 @@ public class LoginPage {
         userName.clear();
         userName.sendKeys("");
         log.debug("Login as Dev was entered: {}", userName);
-        passWort.clear();
-        passWort.sendKeys("");
-        log.debug("Pass as Dev was entered: {}", passWort);
+        password.clear();
+        password.sendKeys("");
+        log.debug("Pass as Dev was entered: {}", password);
         loginButton.click();
         log.info("The 'Login' button was submited");
     }
@@ -46,9 +46,9 @@ public class LoginPage {
         userName.clear();
         userName.sendKeys("");
         log.debug("Login as Manager was entered: {}", userName);
-        passWort.clear();
-        passWort.sendKeys("");
-        log.debug("Pass as Manager was entered: {}", passWort);
+        password.clear();
+        password.sendKeys("");
+        log.debug("Pass as Manager was entered: {}", password);
         loginButton.click();
         log.info("The 'Login' button was submited");
     }
