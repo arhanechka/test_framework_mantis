@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
  * Created by Loki_ on 24.08.2016.
  */
 public class LoginPage {
-    private WebDriver driver;
+    public WebDriver driver;
     private static Logger log = LoggerFactory.getLogger(LoginPage.class);
 
     // Login
@@ -26,31 +26,28 @@ public class LoginPage {
     @FindBy(className="button")
     private WebElement loginButton;
 
-    public LoginPage(WebDriver driver, WebElement userName, WebElement passwort, WebElement loginButton) {
+    public LoginPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
-        this.userName = userName;
-        this.passWort = passwort;
-        this.loginButton = loginButton;
     }
 
-    public void clickLoginDev(WebDriver driver, String login, String pass) {
+    public void clickLoginDev() {
         userName.clear();
-        userName.sendKeys(login);
+        userName.sendKeys("");
         log.debug("Login as Dev was entered: {}", userName);
         passWort.clear();
-        passWort.sendKeys(pass);
+        passWort.sendKeys("");
         log.debug("Pass as Dev was entered: {}", passWort);
         loginButton.click();
         log.info("The 'Login' button was submited");
     }
 
-    public void clickLoginManager(WebDriver driver, String login, String pass) {
+    public void clickLoginManager() {
         userName.clear();
-        userName.sendKeys(login);
+        userName.sendKeys("");
         log.debug("Login as Manager was entered: {}", userName);
         passWort.clear();
-        passWort.sendKeys(pass);
+        passWort.sendKeys("");
         log.debug("Pass as Manager was entered: {}", passWort);
         loginButton.click();
         log.info("The 'Login' button was submited");
