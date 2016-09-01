@@ -18,6 +18,6 @@ public class LoginTest extends BaseTest {
 
 
 
-        Assert.assertEquals("Login as Dev", expectedResult, "");
+        Assert.assertEquals("Login", expectedResult, "");
     }
 }
