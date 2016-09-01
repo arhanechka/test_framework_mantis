@@ -9,7 +9,7 @@ public class ChooseBrowser {
 
     public void chooseBrowsers {
 
-        driver = new ChromeDriver();
+        //driver = new ChromeDriver();
 
     }
 }
