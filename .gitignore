@@ -2,7 +2,8 @@
 *.iml
 IntelliLang.xml
 jdk.table.xml
-_windows
+_windows/
+inspection/
 debugger.renderers.xml
 debugger.xml
 gradle.run.settings.xml
