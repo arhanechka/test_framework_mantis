@@ -18,18 +18,29 @@ public class LoginPage {
     // Login
     @FindBy (name="username")
     private WebElement userName;
-    log.debug("Login was entered: {}", userName);
+
     // Passwort
     @FindBy (name="passwort")
-    private WebElement pass;
-    log.debug("Pass was entered: {}", pass);
+    private WebElement passwort;
+
     // Submit
     @FindBy(className="button")
     private WebElement loginButton;
-    log.info("The 'Login' button was submited");
 
-    public loginPage(WebDriver driver) {
+    public LoginPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
+
+    private void getLogin(WebDriver driver, String login, String pass) {
+        userName.clear();
+        userName.sendKeys(login);
+        log.debug("Login was entered: {}", userName);
+        passwort.clear();
+        passwort.sendKeys(pass);
+        log.debug("Pass was entered: {}", passwort);
+        loginButton.click();
+        log.info("The 'Login' button was submited");
+    }
+
 }
