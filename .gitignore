@@ -1,4 +1,4 @@
-.idea
+.idea/
 *.iml
 IntelliLang.xml
 jdk.table.xml
@@ -12,3 +12,6 @@ project.default.xml
 vcs.xml
 mavenVersion.xml
 ui.lnf.xml
+keyboard.xml
+notifications.xml
+web-browsers.xml
