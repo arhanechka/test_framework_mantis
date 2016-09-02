@@ -25,7 +25,7 @@ public class ChooseBrowser {
         String sFilePath = currentDir.getCanonicalPath() + sDirSeparator + sFileName;
         FileInputStream ins = new FileInputStream(sFilePath);
         props.load(ins);
-        System.out.println(props.getProperty("BROWSER"));
+        //System.out.println(props.getProperty("BROWSER"));
         String browser = props.getProperty("BROWSER");
 
         switch (browser) {
