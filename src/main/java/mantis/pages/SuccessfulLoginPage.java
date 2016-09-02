@@ -14,7 +14,7 @@ public class SuccessfulLoginPage {
     public WebDriver driver;
     private static Logger log = LoggerFactory.getLogger(SuccessfulLoginPage.class);
     //LogOut link
-    @FindBy (xpath = "//td/a[@href='/mantis/']")
+    @FindBy (xpath = "//td/a[@href='/mantis/logout_page.php']")
     private WebElement logOutButton;
 
     public SuccessfulLoginPage(WebDriver driver) {
