@@ -2,6 +2,7 @@ package tests;
 
 import mantis.for_tests.BaseTest;
 import mantis.pages.LoginPage;
+import mantis.pages.SuccessfulLoginPage;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -15,9 +16,15 @@ public class LoginManagerTest extends BaseTest {
     public void loginTest() {
         LoginPage logPass = new LoginPage(driver);
         logPass.clickLoginManager();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        SuccessfulLoginPage sucLogin = new SuccessfulLoginPage(driver);
+        sucLogin.clickLogOut();
+        String actualResult = logPass.clickLogOut();
 
-
-
-        Assert.assertEquals("Login as Manager", expectedResult, "");
+        Assert.assertEquals("Login as Manager", expectedResult, actualResult);
     }
 }
