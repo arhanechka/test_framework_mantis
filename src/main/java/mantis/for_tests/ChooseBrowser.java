@@ -17,27 +17,37 @@ public class ChooseBrowser {
     private static final String sFileName = "testBrowser.properties";
     private static String sDirSeparator = System.getProperty("file.separator");
     private static Properties props = new Properties();
+    public WebDriver driver;
 
-    public void chooseBrowsers(WebDriver driver) throws IOException {
+    public void chooseBrowsers() throws IOException {
         File currentDir = new File(".");
 
         String sFilePath = currentDir.getCanonicalPath() + sDirSeparator + sFileName;
         FileInputStream ins = new FileInputStream(sFilePath);
         props.load(ins);
-        System.out.println(props.getProperty("BROWSER"));
-        String browser = props.getProperty("BROWSER");
+        //System.out.println(props.getProperty("BROWSER"));
+        int browser = props.getProperty("BROWSER");
 
-        if (browser.equals("Chrome")) {
+        /*if (browser.equals("Chrome")) {
             driver = new ChromeDriver();
-            //return;
         }
         if (browser.equals("FF")) {
             driver = new FirefoxDriver();
-            //return;
         }
         if (browser.equals("IE")) {
             driver = new InternetExplorerDriver();
-            //return;
+        } */
+
+        switch (browser) {
+            case 1:
+                driver = new ChromeDriver();
+                break;
+            case 2:
+                driver = new FirefoxDriver();
+                break;
+            case 3:
+                driver = new InternetExplorerDriver();
+                break;
         }
     }
 }

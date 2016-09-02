@@ -14,14 +14,14 @@ import java.util.concurrent.TimeUnit;
  * Created by Loki_ on 23.08.2016.
  */
 public class BaseTest {
-    public WebDriver driver;
+    private WebDriver driver;
 
     @Before
     public void getLogPage() throws InterruptedException, IOException {
 
         ChooseBrowser browser = new ChooseBrowser();
         try {
-            browser.chooseBrowsers(driver);
+            browser.chooseBrowsers();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -36,10 +36,10 @@ public class BaseTest {
         }
     }
 
-    @After
-    public void browseClose() {
+   // @After
+   /* public void browseClose() {
         driver.close();
         driver.quit();
-    }
+    } */
 
 }

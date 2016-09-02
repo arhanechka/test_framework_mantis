@@ -5,11 +5,13 @@ import mantis.pages.LoginPage;
 import mantis.pages.SuccessfulLoginPage;
 import org.junit.Assert;
 import org.junit.Test;
+import org.openqa.selenium.WebDriver;
 
 /**
  * Created by Loki_ on 24.08.2016.
  */
 public class LoginDevTest extends BaseTest {
+    private WebDriver driver;
     private static String expectedResult = "Logout";
 
     @Test
