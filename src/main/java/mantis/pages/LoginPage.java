@@ -56,10 +56,10 @@ public class LoginPage {
     public void clickLoginAdmin() {
         userName.clear();
         userName.sendKeys("admin_auto");
-        log.debug("Login as Manager was entered: {}", userName);
+        log.debug("Login as Admin was entered: {}", userName);
         password.clear();
         password.sendKeys("Administr1");
-        log.debug("Pass as Manager was entered: {}", password);
+        log.debug("Pass as Admin was entered: {}", password);
         loginButton.click();
         log.info("The 'Login' button was submited");
     }
