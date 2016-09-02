@@ -23,7 +23,7 @@ public class LoginDevTest extends BaseTest {
         }
         SuccessfulLoginPage sucLogin = new SuccessfulLoginPage(driver);
         sucLogin.clickLogOut();
-        String actualResult = logPass.chooseResult();
+        String actualResult = logPass.clickLogOut();
 
 
         Assert.assertEquals("Login as Dev", expectedResult, actualResult);
