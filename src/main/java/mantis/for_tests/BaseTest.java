@@ -4,9 +4,9 @@ import mantis.pages.LoginPage;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 
@@ -17,11 +17,17 @@ public class BaseTest {
     public WebDriver driver;
 
     @Before
-    public void getLogPage() throws InterruptedException {
+    public void getLogPage() throws InterruptedException, IOException {
 
-        PageFactory.initElements(driver, LoginPage.class);
+        ChooseBrowser browser = new ChooseBrowser();
+        try {
+            browser.chooseBrowsers(driver);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.get("http://manzhos.me/mantis/login_page.php");
+        PageFactory.initElements(driver, LoginPage.class);
 
         try {
             Thread.sleep(1000);

@@ -34,10 +34,10 @@ public class LoginPage {
 
     public void clickLoginDev() {
         userName.clear();
-        userName.sendKeys("");
+        userName.sendKeys("dev_auto");
         log.debug("Login as Dev was entered: {}", userName);
         password.clear();
-        password.sendKeys("");
+        password.sendKeys("Developer1");
         log.debug("Pass as Dev was entered: {}", password);
         loginButton.click();
         log.info("The 'Login' button was submited");
@@ -46,14 +46,28 @@ public class LoginPage {
 
     public void clickLoginManager() {
         userName.clear();
-        userName.sendKeys("");
+        userName.sendKeys("manager_auto");
         log.debug("Login as Manager was entered: {}", userName);
         password.clear();
-        password.sendKeys("");
+        password.sendKeys("Manager1");
         log.debug("Pass as Manager was entered: {}", password);
         loginButton.click();
         log.info("The 'Login' button was submited");
     }
 
-
+    public void clickLoginAdmin() {
+        userName.clear();
+        userName.sendKeys("admin_auto");
+        log.debug("Login as Admin was entered: {}", userName);
+        password.clear();
+        password.sendKeys("Administr1");
+        log.debug("Pass as Admin was entered: {}", password);
+        loginButton.click();
+        log.info("The 'Login' button was submited");
+    }
+    //get text on Logout button
+    public String clickLogOut() {
+        String getResult = loginButton.getText();
+        return getResult;
+    }
 }
