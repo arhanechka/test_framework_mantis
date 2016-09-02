@@ -53,5 +53,14 @@ public class LoginPage {
         log.info("The 'Login' button was submited");
     }
 
-
+    public void clickLoginAdmin() {
+        userName.clear();
+        userName.sendKeys("");
+        log.debug("Login as Manager was entered: {}", userName);
+        password.clear();
+        password.sendKeys("");
+        log.debug("Pass as Manager was entered: {}", password);
+        loginButton.click();
+        log.info("The 'Login' button was submited");
+    }
 }
