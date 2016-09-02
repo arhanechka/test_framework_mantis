@@ -25,27 +25,17 @@ public class ChooseBrowser {
         String sFilePath = currentDir.getCanonicalPath() + sDirSeparator + sFileName;
         FileInputStream ins = new FileInputStream(sFilePath);
         props.load(ins);
-        //System.out.println(props.getProperty("BROWSER"));
-        int browser = props.getProperty("BROWSER");
-
-        /*if (browser.equals("Chrome")) {
-            driver = new ChromeDriver();
-        }
-        if (browser.equals("FF")) {
-            driver = new FirefoxDriver();
-        }
-        if (browser.equals("IE")) {
-            driver = new InternetExplorerDriver();
-        } */
+        System.out.println(props.getProperty("BROWSER"));
+        String browser = props.getProperty("BROWSER");
 
         switch (browser) {
-            case 1:
+            case "Chrome":
                 driver = new ChromeDriver();
                 break;
-            case 2:
+            case "FF":
                 driver = new FirefoxDriver();
                 break;
-            case 3:
+            default:
                 driver = new InternetExplorerDriver();
                 break;
         }
