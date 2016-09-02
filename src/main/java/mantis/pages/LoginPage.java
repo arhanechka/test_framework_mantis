@@ -63,4 +63,9 @@ public class LoginPage {
         loginButton.click();
         log.info("The 'Login' button was submited");
     }
+
+    public String chooseResult() {
+        String getResult = loginButton.getText();
+        return getResult;
+    }
 }
