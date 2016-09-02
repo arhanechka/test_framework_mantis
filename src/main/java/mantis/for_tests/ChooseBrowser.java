@@ -29,15 +29,15 @@ public class ChooseBrowser {
 
         if (browser.equals("Chrome")) {
             driver = new ChromeDriver();
-            return;
+            //return;
         }
         if (browser.equals("FF")) {
             driver = new FirefoxDriver();
-            return;
+            //return;
         }
         if (browser.equals("IE")) {
             driver = new InternetExplorerDriver();
-            return;
+            //return;
         }
     }
 }
