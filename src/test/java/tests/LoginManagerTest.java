@@ -10,7 +10,7 @@ import org.junit.Test;
  * Created by Loki_ on 02-Sep-16.
  */
 public class LoginManagerTest extends BaseTest {
-    public static String expectedResult = "";
+    public static String expectedResult = "Logout";
 
     @Test
     public void loginTest() {
