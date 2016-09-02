@@ -63,7 +63,7 @@ public class LoginPage {
         loginButton.click();
         log.info("The 'Login' button was submited");
     }
-
+    //get text on Logout button
     public String chooseResult() {
         String getResult = loginButton.getText();
         return getResult;
