@@ -26,8 +26,8 @@ public class BaseTest {
             e.printStackTrace();
         }
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        PageFactory.initElements(driver, LoginPage.class);
         driver.get("http://manzhos.me/mantis/login_page.php");
+        PageFactory.initElements(driver, LoginPage.class);
 
         try {
             Thread.sleep(1000);
