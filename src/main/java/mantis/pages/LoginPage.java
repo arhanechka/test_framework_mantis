@@ -1,5 +1,6 @@
 package mantis.pages;
 
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -40,6 +41,7 @@ public class LoginPage {
         log.debug("Pass as Dev was entered: {}", password);
         loginButton.click();
         log.info("The 'Login' button was submited");
+
     }
 
     public void clickLoginManager() {

@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 public class MyViewPage {
     private WebDriver driver;
     private static Logger log = LoggerFactory.getLogger(MyViewPage.class);
-   
+
 
     //The  "Manage" tab
 
