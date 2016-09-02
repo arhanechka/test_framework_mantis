@@ -4,6 +4,7 @@ IntelliLang.xml
 jdk.table.xml
 _windows/
 inspection/
+target/
 debugger.renderers.xml
 debugger.xml
 gradle.run.settings.xml

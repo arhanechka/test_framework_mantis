@@ -1,6 +1,6 @@
 package mantis.for_tests;
 
-import edu.emory.mathcs.backport.java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeUnit;
 import mantis.pages.LoginPage;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
