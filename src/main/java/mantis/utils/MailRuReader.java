@@ -17,7 +17,7 @@ package mantis.utils;
         import java.util.concurrent.TimeUnit;
 
 /**
- * Created by Олег on 24.08.2016.
+ * Created by Anya 04.09.2016
  */
 public class MailRuReader {
     private WebDriver driver;
@@ -102,6 +102,5 @@ public class MailRuReader {
         delete.click();
         log.info("Actication letter in mail.ru was deleted");
     }
-
 }
 
