@@ -65,15 +65,7 @@ public class LoginPage {
         loginButton.click();
         //log.info("The 'Login' button was submited");
     }
-    public ManagePage clickLoginAdmin(String login, String pass) {
-        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        userName.clear();
-        userName.sendKeys(login);
-        password.clear();
-        password.sendKeys(pass);
-        loginButton.click();
-        return new ManagePage(driver);
-    }
+
     //get text on Logout button
     public String clickLogOut() {
         String getResult = loginButton.getText();
