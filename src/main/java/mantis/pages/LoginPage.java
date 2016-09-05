@@ -7,6 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Created by Loki_ on 24.08.2016.
  */
@@ -63,6 +65,7 @@ public class LoginPage {
         loginButton.click();
         //log.info("The 'Login' button was submited");
     }
+
     //get text on Logout button
     public String clickLogOut() {
         String getResult = loginButton.getText();

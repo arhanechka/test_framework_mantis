@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
  */
 public class SuccessfulLoginPage {
     public WebDriver driver;
-    private static Logger log = LoggerFactory.getLogger(SuccessfulLoginPage.class);
+    //private static Logger log = LoggerFactory.getLogger(SuccessfulLoginPage.class);
     //LogOut link
     @FindBy (xpath = "//td/a[@href='/mantis/logout_page.php']")
     private WebElement logOutButton;
@@ -24,6 +24,6 @@ public class SuccessfulLoginPage {
 
     public void clickLogOut() {
         logOutButton.click();
-        log.info("The 'LogOut' button was clicked");
+        //log.info("The 'LogOut' button was clicked");
     }
 }
