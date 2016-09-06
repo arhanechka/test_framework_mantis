@@ -66,8 +66,8 @@ public class LoginPage extends AbstractPage {
     }
 
     //get text on Logout button
-    public String textLoginButton() {
-        String str = loginButton.getText();
-        return str;
+    public LoginPage textLoginButton() {
+        loginButton.getText();
+        return this;
     }
 }
