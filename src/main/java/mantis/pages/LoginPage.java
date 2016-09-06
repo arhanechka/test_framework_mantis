@@ -4,8 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * Created by Loki_ on 24.08.2016.
@@ -69,7 +67,7 @@ public class LoginPage extends AbstractPage {
 
     //get text on Logout button
     public String textLoginButton() {
-        String getResult = loginButton.getText();
-        return getResult;
+        String str = loginButton.getText();
+        return str;
     }
 }
