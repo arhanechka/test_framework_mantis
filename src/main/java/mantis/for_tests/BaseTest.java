@@ -27,13 +27,8 @@ public class BaseTest {
         }
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.get("http://manzhos.me/mantis/login_page.php");
-        PageFactory.initElements(driver, LoginPage.class);
+        //PageFactory.initElements(driver, LoginPage.class);
 
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
    // @After

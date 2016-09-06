@@ -7,8 +7,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.concurrent.TimeUnit;
-
 /**
  * Created by Loki_ on 24.08.2016.
  */
@@ -70,7 +68,7 @@ public class LoginPage extends AbstractPage {
     }
 
     //get text on Logout button
-    public String clickLogOut() {
+    public String textLoginButton() {
         String getResult = loginButton.getText();
         return getResult;
     }
