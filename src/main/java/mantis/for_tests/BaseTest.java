@@ -1,10 +1,7 @@
 package mantis.for_tests;
 
-import mantis.pages.LoginPage;
-import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;

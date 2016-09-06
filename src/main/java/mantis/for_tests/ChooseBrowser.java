@@ -32,9 +32,9 @@ public class ChooseBrowser {
             case "Chrome":
                 driver = new ChromeDriver();
                 break;
-            //case "FF":
-                //driver = new FirefoxDriver();
-                //break;
+            case "IE":
+                driver = new InternetExplorerDriver();
+                break;
             default:
                 driver = new FirefoxDriver();
                 break;
