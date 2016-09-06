@@ -12,8 +12,8 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by Loki_ on 24.08.2016.
  */
-public class LoginPage {
-    public WebDriver driver;
+public class LoginPage extends AbstractPage {
+    //public WebDriver driver;
     //private static Logger log = LoggerFactory.getLogger(LoginPage.class);
 
     // Login
@@ -29,11 +29,11 @@ public class LoginPage {
     private WebElement loginButton;
 
     public LoginPage(WebDriver driver) {
+        super(driver);
         PageFactory.initElements(driver, this);
-        this.driver = driver;
     }
 
-    public void clickLoginDev() {
+    public LoginPage clickLoginDev() {
         userName.clear();
         userName.sendKeys("dev_auto");
         //log.debug("Login as Dev was entered: {}", userName);
@@ -42,9 +42,10 @@ public class LoginPage {
         //log.debug("Pass as Dev was entered: {}", password);
         loginButton.click();
         //log.info("The 'Login' button was submited");
+        return this;
     }
 
-    public void clickLoginManager() {
+    public LoginPage clickLoginManager() {
         userName.clear();
         userName.sendKeys("manager_auto");
         //log.debug("Login as Manager was entered: {}", userName);
@@ -53,9 +54,10 @@ public class LoginPage {
         //log.debug("Pass as Manager was entered: {}", password);
         loginButton.click();
         //log.info("The 'Login' button was submited");
+        return this;
     }
 
-    public void clickLoginAdmin() {
+    public LoginPage clickLoginAdmin() {
         userName.clear();
         userName.sendKeys("admin_auto");
         //log.debug("Login as Admin was entered: {}", userName);
@@ -64,6 +66,7 @@ public class LoginPage {
         //log.debug("Pass as Admin was entered: {}", password);
         loginButton.click();
         //log.info("The 'Login' button was submited");
+        return this;
     }
 
     //get text on Logout button

@@ -8,18 +8,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Created by anna on 01.09.16.
+ * Created by Loki_ on 01.09.16.
  */
-public class SuccessfulLoginPage {
-    public WebDriver driver;
+public class SuccessfulLoginPage extends AbstractPage {
+    //public WebDriver driver;
     //private static Logger log = LoggerFactory.getLogger(SuccessfulLoginPage.class);
     //LogOut link
     @FindBy (xpath = "//td/a[@href='/mantis/logout_page.php']")
     private WebElement logOutButton;
 
     public SuccessfulLoginPage(WebDriver driver) {
+        super(driver);
         PageFactory.initElements(driver, this);
-        this.driver = driver;
     }
 
     public void clickLogOut() {
