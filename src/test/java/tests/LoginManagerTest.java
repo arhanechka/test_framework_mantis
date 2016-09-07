@@ -3,10 +3,9 @@ package tests;
 import mantis.for_tests.BaseTest;
 import mantis.pages.LoginPage;
 import mantis.pages.SuccessfulLoginPage;
-import org.junit.Assert;
-import org.junit.Test;
-import org.omg.CORBA.WCharSeqHelper;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 /**
  * Created by Loki_ on 02-Sep-16.
@@ -28,6 +27,6 @@ public class LoginManagerTest extends BaseTest {
         sucLogin.clickLogOut();
         LoginPage actualResult = logPass.textLoginButton();
 
-        Assert.assertEquals("Login as Manager", expectedResult, actualResult);
+        Assert.assertEquals("Login as Manager", actualResult, expectedResult);
     }
 }

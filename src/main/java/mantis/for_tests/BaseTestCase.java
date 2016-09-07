@@ -1,30 +1,36 @@
 package mantis.for_tests;
 
-import java.util.concurrent.TimeUnit;
+import java.io.IOException;
+
+import mantis.pages.CreateUserChecking;
 import mantis.pages.LoginPage;
-import org.junit.Before;
-import org.openqa.selenium.WebDriver;
+import mantis.pages.ManagePage;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.BeforeMethod;
 
 /**
  * Created by Loki_ on 01-Sep-16.
  */
-public class BaseTestCase {
-    public WebDriver driver;
-    private String URL = "http://manzhos.me/mantis/login_page.php";
+public class BaseTestCase extends BaseTest{
+
+    public CreateUserChecking createUserChecking;
+    public LoginPage loginPage;
+    public ManagePage managePage;
 
 
-    @Before
-    public void getLogPage() throws InterruptedException {
+    @BeforeMethod
+    public void getLogPage() throws InterruptedException, IOException {
 
-        PageFactory.initElements(driver, LoginPage.class);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.get(URL);
+        createUserChecking = new CreateUserChecking(getDriver());
+        PageFactory.initElements(getDriver(), CreateUserChecking.class);
 
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        loginPage = new LoginPage(getDriver());
+        PageFactory.initElements(getDriver(), LoginPage.class);
+
+        managePage = new ManagePage(getDriver());
+        PageFactory.initElements(getDriver(), ManagePage.class);
+
+
+
     }
 }
