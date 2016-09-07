@@ -2,9 +2,7 @@ package mantis.for_tests;
 
 import java.io.IOException;
 
-import mantis.pages.CreateUserChecking;
-import mantis.pages.LoginPage;
-import mantis.pages.ManagePage;
+import mantis.pages.*;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.BeforeMethod;
 
@@ -16,6 +14,10 @@ public class BaseTestCase extends BaseTest{
     public CreateUserChecking createUserChecking;
     public LoginPage loginPage;
     public ManagePage managePage;
+    public ManageProjectsPage manageProjectsPage;
+    public MyViewPage myViewPage;
+    public PasswordConfirm passwordConfirm;
+    public SuccessfulLoginPage successfulLoginPage;
 
 
     @BeforeMethod
@@ -30,7 +32,17 @@ public class BaseTestCase extends BaseTest{
         managePage = new ManagePage(getDriver());
         PageFactory.initElements(getDriver(), ManagePage.class);
 
+        manageProjectsPage = new ManageProjectsPage(getDriver());
+        PageFactory.initElements(getDriver(), ManageProjectsPage.class);
 
+        myViewPage = new MyViewPage(getDriver());
+        PageFactory.initElements(getDriver(), MyViewPage.class);
+
+        passwordConfirm = new PasswordConfirm(getDriver());
+        PageFactory.initElements(getDriver(), PasswordConfirm.class);
+
+        successfulLoginPage = new SuccessfulLoginPage(getDriver());
+        PageFactory.initElements(getDriver(), SuccessfulLoginPage.class);
 
     }
 }
