@@ -1,7 +1,7 @@
 package tests;
 
 
-        import org.junit.*;
+
         import mantis.pages.*;
         import mantis.utils.MailRuReader;
         import mantis.utils.RandomNames;
@@ -10,6 +10,11 @@ package tests;
         import org.openqa.selenium.chrome.ChromeDriver;
         import org.slf4j.Logger;
         import org.slf4j.LoggerFactory;
+        import org.testng.Assert;
+        import org.testng.annotations.AfterClass;
+        import org.testng.annotations.BeforeClass;
+        import org.testng.annotations.BeforeMethod;
+        import org.testng.annotations.Test;
 
         import java.util.concurrent.TimeUnit;
 
@@ -42,7 +47,7 @@ public class CreateNewUserTest {
         activator=new MailRuReader(driver);
 
     }
-    @Before
+    @BeforeMethod
     public void openUrl() {
 
         driver.get(URL1);
@@ -90,9 +95,9 @@ public class CreateNewUserTest {
    }
 
 
-  /*  @AfterClass
+    @AfterClass
     public static void tearDown() {
         if (driver != null) {
             driver.close();
             driver.quit();
-        }}*/}
+        }}}
