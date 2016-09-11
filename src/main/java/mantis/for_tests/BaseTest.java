@@ -1,13 +1,10 @@
 package mantis.for_tests;
 
-import mantis.pages.LoginPage;
-import org.junit.After;
-import org.junit.Before;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterSuite;
 
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
+
 
 
 /**
@@ -15,31 +12,23 @@ import java.util.concurrent.TimeUnit;
  */
 public class BaseTest {
     private WebDriver driver;
+    protected WebDriver getDriver() {
+        return driver;
+    }
 
-    @Before
-    public void getLogPage() throws InterruptedException, IOException {
-
+    public void myBrowser() {
         ChooseBrowser browser = new ChooseBrowser();
         try {
             browser.chooseBrowsers();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.get("http://manzhos.me/mantis/login_page.php");
-        PageFactory.initElements(driver, LoginPage.class);
-
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
-   // @After
-   /* public void browseClose() {
+    @AfterSuite
+    public void browseClose() {
         driver.close();
         driver.quit();
-    } */
+    }
 
 }

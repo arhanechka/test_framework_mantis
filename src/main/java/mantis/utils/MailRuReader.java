@@ -10,6 +10,8 @@ package mantis.utils;
         import org.openqa.selenium.chrome.ChromeDriver;
         import org.openqa.selenium.support.FindBy;
         import org.openqa.selenium.support.PageFactory;
+        import org.openqa.selenium.support.ui.ExpectedConditions;
+        import org.openqa.selenium.support.ui.WebDriverWait;
         import org.slf4j.Logger;
         import org.slf4j.LoggerFactory;
 
@@ -22,7 +24,7 @@ package mantis.utils;
 public class MailRuReader {
     private WebDriver driver;
     private  final String URL = "https://mail.ru/";
-    private  final String login ="tests_for_selenium";
+    private  final String login ="new_tests_for_selenium";
     private final String pas ="ABC_TESTERS";
     private  static String windowHadndler;
     private static Logger log = LoggerFactory.getLogger(MailRuReader.class);
@@ -62,7 +64,9 @@ public class MailRuReader {
         this.driver = driver;
     }
 
-
+public void waitingLetter(){
+    letter=(new WebDriverWait(driver,15000).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[text()[contains(.,'[MantisBT] Account registration')]]"))));
+}
     public void mailEntering() {
         driver.get(URL);
         loginLoc.sendKeys(login);
@@ -73,6 +77,7 @@ public class MailRuReader {
         mailEntering();
         log.info("Enter to mail.ru inbox was successfull");
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        waitingLetter();
         try{
             letter.click();
             driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);

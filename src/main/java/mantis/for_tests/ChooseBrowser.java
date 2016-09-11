@@ -30,14 +30,24 @@ public class ChooseBrowser {
 
         switch (browser) {
             case "Chrome":
-                driver = new ChromeDriver();
-                break;
-            case "FF":
-                driver = new FirefoxDriver();
-                break;
+                createChromeDriver();
+            case "IE":
+                createInternetExplorerDriver();
             default:
-                driver = new InternetExplorerDriver();
-                break;
+                createFirefoxDriver();
         }
+
+    }
+    private WebDriver createChromeDriver() {
+        driver = new ChromeDriver();
+        return driver;
+    }
+    private WebDriver createInternetExplorerDriver() {
+        driver = new InternetExplorerDriver();
+        return driver;
+    }
+    private WebDriver createFirefoxDriver() {
+        driver = new FirefoxDriver();
+        return driver;
     }
 }
