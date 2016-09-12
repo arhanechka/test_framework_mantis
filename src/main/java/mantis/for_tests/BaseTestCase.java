@@ -18,6 +18,8 @@ public class BaseTestCase extends BaseTest{
     public MyViewPage myViewPage;
     public PasswordConfirm passwordConfirm;
     public SuccessfulLoginPage successfulLoginPage;
+    public CreateNewProjectPage createNewProjectPage;
+
 
 
     @BeforeMethod
@@ -43,6 +45,9 @@ public class BaseTestCase extends BaseTest{
 
         successfulLoginPage = new SuccessfulLoginPage(getDriver());
         PageFactory.initElements(getDriver(), SuccessfulLoginPage.class);
+
+        createNewProjectPage = new CreateNewProjectPage(getDriver());
+        PageFactory.initElements(getDriver(), CreateNewProjectPage.class);
 
     }
 }

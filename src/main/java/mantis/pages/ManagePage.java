@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Created by Евгения on 9/1/2016.
  */
-public class ManagePage {
+public class ManagePage extends AbstractPage {
     private WebDriver driver;
     private static Logger log = LoggerFactory.getLogger(ManagePage.class);
 
@@ -22,8 +22,9 @@ public class ManagePage {
     private WebElement manageProjectsLink;
 
     public ManagePage(WebDriver driver) {
+        super (driver);
         PageFactory.initElements(driver, this);
-        this.driver = driver;
+
     }
 
     private ManagePage goToManageProjectsPage (WebDriver driver) {

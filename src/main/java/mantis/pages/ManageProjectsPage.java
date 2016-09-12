@@ -11,26 +11,31 @@ import org.slf4j.LoggerFactory;
 /**
  * Created by Евгения on 9/1/2016.
  */
-public class ManageProjectsPage {
+public class  ManageProjectsPage extends AbstractPage{
     private WebDriver driver;
     private static Logger log = LoggerFactory.getLogger(ManageProjectsPage.class);
 
 
     // The input field to create the category name
-
     @FindBy(name = "name")
     private WebElement categoryInputField;
 
     // The 'Add Category' button
-
     @FindBy(className = "button")
     private WebElement addCategoryButton;
+
+    // The 'Create New Project' button
+    @FindBy (className ="button-small")
+    private WebElement  createNewProjectButton;
+
+
 
 
 
     public ManageProjectsPage(WebDriver driver) {
+        super(driver);
         PageFactory.initElements(driver, this);
-        this.driver = driver;
+
 
     }
 
