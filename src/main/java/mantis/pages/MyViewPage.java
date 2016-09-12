@@ -11,10 +11,10 @@ import org.slf4j.LoggerFactory;
 /**
  * Created by Евгения on 9/1/2016.
  */
-public class MyViewPage {
+public class MyViewPage extends  AbstractPage{
     private WebDriver driver;
     private static Logger log = LoggerFactory.getLogger(MyViewPage.class);
-   
+
 
     //The  "Manage" tab
 
@@ -24,8 +24,9 @@ public class MyViewPage {
 
 
     public MyViewPage (WebDriver driver) {
+        super(driver);
         PageFactory.initElements(driver, this);
-        this.driver = driver;
+
     }
 
     private MyViewPage goToManagePage (WebDriver driver) {
