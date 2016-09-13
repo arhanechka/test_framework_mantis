@@ -2,8 +2,8 @@ package tests;
 
 import mantis.for_tests.BaseTest;
 import mantis.pages.LoginPage;
-import org.junit.Assert;
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 /**
  * Created by Loki_ on 24.08.2016.
@@ -13,10 +13,8 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void loginTest() {
-        LoginPage logPass = new LoginPage(driver);
+        LoginPage logPass = new LoginPage(getDriver ());
         logPass.clickLoginDev();
-
-
 
         Assert.assertEquals("Login", expectedResult, "");
     }
