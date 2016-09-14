@@ -56,30 +56,30 @@ public class CreateNewProjectPage extends AbstractPage {
         projectNameInput.sendKeys(projectName);
         log.debug("The project name was entered: {}", projectName);
 
-        Select statusDropdown = new Select(statusDropdown);
+        Select statusDropdownEl = new Select(statusDropdown);
         switch (status) {
             case DEVELOPMENT_STATUS_DROP_DOWN:
-                statusDropdown.selectByValue("10");
+                statusDropdownEl.selectByValue("10");
                 break;
             case RELEASE_STATUS_DROP_DOWN:
-                statusDropdown.selectByValue("30");
+                statusDropdownEl.selectByValue("30");
                 break;
             case STABLE_STATUS_DROP_DOWN:
-                statusDropdown.selectByValue("50");
+                statusDropdownEl.selectByValue("50");
                 break;
             case OBSOLETE_STATUS_DROP_DOWN:
-                statusDropdown.selectByValue("70");
+                statusDropdownEl.selectByValue("70");
                 break;
         }
         log.debug("The status of project was selected: {}", status);
 
-        Select viewStatusDropdown = new Select(viewStatusDropdown);
+        Select viewStatusDropdownEl = new Select(viewStatusDropdown);
         switch (viewStatus) {
             case PUBLIC_STATUS_DROP_DOWN:
-                viewStatusDropdown.selectByValue("10");
+                viewStatusDropdownEl.selectByValue("10");
                 break;
             case PRIVATE_STATUS_DROP_DOWN:
-                viewStatusDropdown.selectByValue("50");
+                viewStatusDropdownEl.selectByValue("50");
                 break;
         }
         log.debug("The view status of project was selected: {}", viewStatus);
