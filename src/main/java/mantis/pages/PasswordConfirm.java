@@ -1,7 +1,7 @@
 package mantis.pages;
 
 
-        import mantis.utils.MailRuReader;
+
         import org.openqa.selenium.NoSuchElementException;
         import org.openqa.selenium.WebDriver;
         import org.openqa.selenium.WebElement;
@@ -14,7 +14,7 @@ package mantis.pages;
 /**
  * Created by Anya on 03.09.2016.
  */
-public class PasswordConfirm {
+public class PasswordConfirm extends AbstractPage {
     private WebDriver driver;
     private static Logger log = LoggerFactory.getLogger(PasswordConfirm.class);
 
@@ -31,8 +31,7 @@ public class PasswordConfirm {
     private WebElement success;
 
     public PasswordConfirm(WebDriver driver) {
-
-        this.driver = driver;
+        super(driver);
         PageFactory.initElements(driver, this);
     }
     public String passwordEntering(String pass){

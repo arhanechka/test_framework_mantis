@@ -13,13 +13,13 @@ import java.util.Properties;
 /**
  * Created by Loki_ on 31-Aug-16.
  */
-public class ChooseBrowser {
+public class ChooseBrowser extends BaseTest{
     private static final String sFileName = "testBrowser.properties";
     private static String sDirSeparator = System.getProperty("file.separator");
     private static Properties props = new Properties();
     public WebDriver driver;
 
-    public void chooseBrowsers() throws IOException {
+    public WebDriver chooseBrowsers() throws IOException {
         File currentDir = new File(".");
 
         String sFilePath = currentDir.getCanonicalPath() + sDirSeparator + sFileName;
@@ -30,13 +30,12 @@ public class ChooseBrowser {
 
         switch (browser) {
             case "Chrome":
-                createChromeDriver();
+                return createChromeDriver();
             case "IE":
-                createInternetExplorerDriver();
+                return createInternetExplorerDriver();
             default:
-                createFirefoxDriver();
+                return createFirefoxDriver();
         }
-
     }
     private WebDriver createChromeDriver() {
         driver = new ChromeDriver();

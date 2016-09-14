@@ -1,10 +1,12 @@
 package mantis.for_tests;
 
-import java.io.IOException;
-
 import mantis.pages.*;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+
+import java.io.IOException;
+
 
 /**
  * Created by Loki_ on 01-Sep-16.
@@ -20,10 +22,8 @@ public class BaseTestCase extends BaseTest{
     public SuccessfulLoginPage successfulLoginPage;
     public CreateNewProjectPage createNewProjectPage;
 
-
-
     @BeforeMethod
-    public void getLogPage() throws InterruptedException, IOException {
+    public void getLogPage() {
 
         createUserChecking = new CreateUserChecking(getDriver());
         PageFactory.initElements(getDriver(), CreateUserChecking.class);
@@ -49,5 +49,10 @@ public class BaseTestCase extends BaseTest{
         createNewProjectPage = new CreateNewProjectPage(getDriver());
         PageFactory.initElements(getDriver(), CreateNewProjectPage.class);
 
+    }
+
+    @BeforeClass
+    public void setUp() throws IOException {
+        chooseBrowsers();
     }
 }

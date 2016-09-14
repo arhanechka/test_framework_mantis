@@ -75,4 +75,5 @@ public class LoginPage extends AbstractPage {
         loginButton.getText();
         return this;
     }
+
 }

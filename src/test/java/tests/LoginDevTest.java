@@ -1,6 +1,6 @@
 package tests;
 
-import mantis.for_tests.BaseTest;
+import mantis.for_tests.BaseTestCase;
 import mantis.pages.LoginPage;
 import mantis.pages.SuccessfulLoginPage;
 import org.testng.Assert;
@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 /**
  * Created by Loki_ on 24.08.2016.
  */
-public class LoginDevTest extends BaseTest {
+public class LoginDevTest extends BaseTestCase {
     private static String expectedResult = "Logout";
 
     @Test
@@ -24,7 +24,6 @@ public class LoginDevTest extends BaseTest {
         SuccessfulLoginPage sucLogin = new SuccessfulLoginPage(getDriver());
         sucLogin.clickLogOut();
         LoginPage actualResult = logPass.textLoginButton();
-
 
         Assert.assertEquals("Login as Dev", actualResult, expectedResult);
     }

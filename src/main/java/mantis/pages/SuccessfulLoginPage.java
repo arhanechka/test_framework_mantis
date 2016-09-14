@@ -20,7 +20,6 @@ public class SuccessfulLoginPage extends AbstractPage {
         super(driver);
         PageFactory.initElements(driver, this);
     }
-
     public void clickLogOut() {
         logOutButton.click();
         //log.info("The 'LogOut' button was clicked");

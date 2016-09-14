@@ -1,11 +1,12 @@
 package mantis.pages;
 
+
 import org.openqa.selenium.WebDriver;
 
-/**
+/** 
  * Created by Loki_ on 06.09.16.
  */
-public class AbstractPage {
+public abstract class AbstractPage {
     private WebDriver driver;
 
     public AbstractPage(WebDriver driver) {
