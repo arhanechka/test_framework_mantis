@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Created by Евгения on 9/1/2016.
  */
-public class MyViewPage extends  AbstractPage{
+public class MyViewPage extends AbstractPage{
     private WebDriver driver;
     private static Logger log = LoggerFactory.getLogger(MyViewPage.class);
 

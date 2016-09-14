@@ -9,7 +9,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-public class CreateUserChecking {public WebDriver driver;
+public class CreateUserChecking extends AbstractPage {
+    public WebDriver driver;
     private static Logger log = LoggerFactory.getLogger(CreateUserChecking.class);
 
     // Login
@@ -38,7 +39,7 @@ public class CreateUserChecking {public WebDriver driver;
 
     public CreateUserChecking(WebDriver driver) {
 
-        this.driver = driver;
+        super(driver);
         PageFactory.initElements(driver, this);
     }
 

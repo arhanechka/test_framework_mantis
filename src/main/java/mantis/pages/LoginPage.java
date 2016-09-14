@@ -35,6 +35,7 @@ public class LoginPage extends AbstractPage {
     }
 
     public LoginPage clickLoginDev() {
+        this.openUrl();
         userName.clear();
         userName.sendKeys("dev_auto");
         //log.debug("Login as Dev was entered: {}", userName);
@@ -47,6 +48,7 @@ public class LoginPage extends AbstractPage {
     }
 
     public LoginPage clickLoginManager() {
+        this.openUrl();
         userName.clear();
         userName.sendKeys("manager_auto");
         //log.debug("Login as Manager was entered: {}", userName);
