@@ -29,6 +29,7 @@ public class LoginPage extends AbstractPage {
         PageFactory.initElements(driver, this);
     }
 
+    // Method for get URL for login page
     public LoginPage openUrl() {
         getDriver().get(URL);
         return this;
