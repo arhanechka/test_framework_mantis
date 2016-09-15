@@ -34,6 +34,7 @@ public class LoginPage extends AbstractPage {
         return this;
     }
 
+    // Method for login as Developer
     public LoginPage clickLoginDev() {
         this.openUrl();
         userName.clear();
@@ -47,6 +48,7 @@ public class LoginPage extends AbstractPage {
         return this;
     }
 
+    // Method for login as Manager
     public LoginPage clickLoginManager() {
         this.openUrl();
         userName.clear();
@@ -60,6 +62,7 @@ public class LoginPage extends AbstractPage {
         return this;
     }
 
+    // Method for login as Admin
     public LoginPage clickLoginAdmin() {
         userName.clear();
         userName.sendKeys("admin_auto");
