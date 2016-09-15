@@ -65,6 +65,7 @@ public class LoginPage extends AbstractPage {
 
     // Method for login as Admin
     public LoginPage clickLoginAdmin() {
+        this.openUrl();
         userName.clear();
         userName.sendKeys("admin_auto");
         //log.debug("Login as Admin was entered: {}", userName);
