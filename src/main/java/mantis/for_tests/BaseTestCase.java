@@ -13,7 +13,7 @@ import java.io.IOException;
  */
 public class BaseTestCase extends BaseTest{
 
-    public CreateUserChecking createUserChecking;
+    public CreateUserCheckingPage createUserChecking;
     public LoginPage loginPage;
     public ManagePage managePage;
     public ManageProjectsPage manageProjectsPage;
@@ -26,8 +26,8 @@ public class BaseTestCase extends BaseTest{
     @BeforeMethod
     public void getLogPage() {
 
-        createUserChecking = new CreateUserChecking(getDriver());
-        PageFactory.initElements(getDriver(), CreateUserChecking.class);
+        createUserChecking = new CreateUserCheckingPage(getDriver());
+        PageFactory.initElements(getDriver(), CreateUserCheckingPage.class);
 
         loginPage = new LoginPage(getDriver());
         PageFactory.initElements(getDriver(), LoginPage.class);
