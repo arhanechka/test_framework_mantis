@@ -8,6 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.concurrent.TimeUnit;
+
 
 public class CreateUserChecking extends AbstractPage {
     public WebDriver driver;
@@ -37,19 +39,33 @@ public class CreateUserChecking extends AbstractPage {
     @FindBy(xpath = "//div[text()[contains(.,'Password successfully updated')]]")
     WebElement success;
 
+    @FindBy (xpath = "//a[text()[contains(.,'Logout')]]")
+    WebElement logOut;
+
+
     public CreateUserChecking(WebDriver driver) {
 
         super(driver);
         PageFactory.initElements(driver, this);
     }
+    public CreateUserChecking goToCreateUser (){
+        new LoginPage(getDriver()).clickLoginAdmin();//enter as admin
+        log.info("Enter as admin was successfull");
+        new MyViewPage(getDriver()).goToManagePage();
+        new ManagePage(getDriver()).goToManageUsersPage();
+        new ManageUserPage(getDriver()).goToCreateUserCheckingPage();
+        return this;}
 
-    public WebElement creationChecking(String newName, String newEmail, By report) {
+    public String creationChecking(String newName, String newEmail) {
+        this.goToCreateUser();
         userName.clear();
         userName.sendKeys(newName);
         email.clear();
         email.sendKeys(newEmail);
         createUserButton.click();
-        return driver.findElement(report);
+        String ddd=new WrongUserCreationPage(getDriver()).getMistakeText();
+        logOut.click();
+        return ddd;
     }
 
 }
