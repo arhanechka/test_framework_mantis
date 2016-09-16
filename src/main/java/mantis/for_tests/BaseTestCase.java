@@ -21,7 +21,8 @@ public class BaseTestCase extends BaseTest{
     public PasswordConfirm passwordConfirm;
     public SuccessfulLoginPage successfulLoginPage;
     public CreateNewProjectPage createNewProjectPage;
-
+    public ManageUserPage manageUserPage;
+    public WrongUserCreationPage wrongUserCreationPage;
     @BeforeMethod
     public void getLogPage() {
 
@@ -49,6 +50,11 @@ public class BaseTestCase extends BaseTest{
         createNewProjectPage = new CreateNewProjectPage(getDriver());
         PageFactory.initElements(getDriver(), CreateNewProjectPage.class);
 
+        manageUserPage = new ManageUserPage(getDriver());
+        PageFactory.initElements(getDriver(), ManageUserPage.class);
+
+        wrongUserCreationPage = new WrongUserCreationPage(getDriver());
+        PageFactory.initElements(getDriver(), WrongUserCreationPage.class);
     }
 
     @BeforeClass
