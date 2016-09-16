@@ -35,6 +35,11 @@ public class MyViewPage extends AbstractPage{
         return this;
 
     }
+    public MyViewPage goToManagePage () {
+        manageTab.click();
+        log.info("The 'Manage' tab was clicked");
+        return this;
 
+    }
 }
 
