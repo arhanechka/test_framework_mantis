@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
  * Created by Loki_ on 02-Sep-16.
  */
 public class LoginManagerTest extends BaseTestCase {
+    
     public static String expectedResult = "Logout";
 
     @Test
