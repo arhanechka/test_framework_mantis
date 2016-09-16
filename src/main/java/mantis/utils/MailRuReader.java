@@ -1,13 +1,12 @@
 package mantis.utils;
 
 
-        import mantis.pages.CreateUserChecking;
+
         import mantis.pages.PasswordConfirm;
         import org.openqa.selenium.By;
         import org.openqa.selenium.NoSuchElementException;
         import org.openqa.selenium.WebDriver;
         import org.openqa.selenium.WebElement;
-        import org.openqa.selenium.chrome.ChromeDriver;
         import org.openqa.selenium.support.FindBy;
         import org.openqa.selenium.support.PageFactory;
         import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -15,7 +14,6 @@ package mantis.utils;
         import org.slf4j.Logger;
         import org.slf4j.LoggerFactory;
 
-        import java.util.Random;
         import java.util.concurrent.TimeUnit;
 
 /**
