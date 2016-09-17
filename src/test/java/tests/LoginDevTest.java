@@ -2,6 +2,7 @@ package tests;
 
 import mantis.for_tests.BaseTestCase;
 import mantis.pages.LoginPage;
+import mantis.pages.MyViewPage;
 import mantis.pages.SuccessfulLoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -21,10 +22,8 @@ public class LoginDevTest extends BaseTestCase {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        SuccessfulLoginPage sucLogin = new SuccessfulLoginPage(getDriver());
-        sucLogin.clickLogOut();
-        LoginPage actualResult = logPass.textLoginButton();
-
-        Assert.assertEquals("Login as Dev", actualResult, expectedResult);
+        MyViewPage logout=new MyViewPage(getDriver());
+        String actualResult = logout.getLogoutText();
+        Assert.assertEquals(expectedResult, actualResult, "Login as Developer");
     }
 }
