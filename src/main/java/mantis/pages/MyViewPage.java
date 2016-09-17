@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 public class MyViewPage extends AbstractPage{
     private WebDriver driver;
     private static Logger log = LoggerFactory.getLogger(MyViewPage.class);
-
+   sd
 
     //The  "Manage" tab
 
