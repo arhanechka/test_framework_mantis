@@ -21,7 +21,8 @@ public class MyViewPage extends AbstractPage{
     @FindBy(linkText = "Manage")
     private WebElement manageTab;
 
-
+    @FindBy(linkText = "Logout")
+    private WebElement logoutLink;
 
     public MyViewPage (WebDriver driver) {
         super(driver);
@@ -41,5 +42,12 @@ public class MyViewPage extends AbstractPage{
         return this;
 
     }
+    public String getLogoutText(){
+       String logout=logoutLink.getText();
+       logoutLink.click();
+        return logout;
+    }
+
+
 }
 
