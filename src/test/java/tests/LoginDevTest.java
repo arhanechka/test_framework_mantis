@@ -14,7 +14,7 @@ public class LoginDevTest extends BaseTestCase {
     private static String expectedResult = "Logout";
 
     @Test
-    public void loginTest() throws InterruptedException {
+    public void loginTest() {
         LoginPage logPass = new LoginPage(getDriver());
         logPass.clickLoginDev();
         try {
