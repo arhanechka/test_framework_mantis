@@ -42,43 +42,54 @@ public class ValidateFieldsPage extends AbstractPage {
     @FindBy (name = "priority")
     private WebElement priority;
 
-    // Select Profile field
+    // a Profile field
     @FindBy (name = "handler_id")
     private WebElement select_profile;
 
-    //Select Platform field
+    // a Platform field
     @FindBy (id = "platform")
     private WebElement platform;
 
-    //Select OS field
+    //a  OS field
     @FindBy (id = "os")
     private WebElement os;
 
-
+    // a OS build field
     @FindBy (id = "os_build")
     private WebElement os_build;
 
+
+    // a assign to field
     @FindBy (name = "handler_id")
     private WebElement assign_to;
 
+    // a summary field
     @FindBy (name = "summary")
     private WebElement summary;
 
+    // a description field
     @FindBy (name = "description")
     private WebElement description;
 
+    // steps to reproduce
     @FindBy (name = "steps_to_reproduce")
     private WebElement steps_to_reproduce;
 
+    //a add info field
     @FindBy (name = "additional_info")
     private WebElement additional_info;
 
+    //a  upload file
     @FindBy (name = "ufile[]")
     private WebElement ufile;
 
+
+    //view state
     @FindBy (name = "view_state")
     private WebElement view_state;
 
+
+    //submit report
     @FindBy (css = "input.button")
     private WebElement submit_report;
 
@@ -99,6 +110,16 @@ public class ValidateFieldsPage extends AbstractPage {
         additional_info.click ();
         //ufile.click ();
         submit_report.click ();
+
+    }
+
+    public void inputData() {
+
+
+    }
+
+    public void selectItems() {
+
 
     }
 
