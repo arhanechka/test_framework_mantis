@@ -113,7 +113,11 @@ public class ValidateFieldsPage extends AbstractPage {
 
     }
 
-    public void inputData() {
+    public void inputData(WebDriver driver,
+                          String summary,
+                          String description,
+                          String steps,
+                          String addInfo) {
 
 
     }
