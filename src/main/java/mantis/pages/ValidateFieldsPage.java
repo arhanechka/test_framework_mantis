@@ -1,0 +1,107 @@
+package mantis.pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+/**
+ * Created by sveta on 19.09.16.
+ * <p>
+ * to be countinued
+ */
+public class ValidateFieldsPage extends AbstractPage {
+
+
+    private static Logger log = LoggerFactory.getLogger ( ValidateFieldsPage.class );
+    public WebDriver driver;
+
+    public ValidateFieldsPage(WebDriver driver) {
+
+        super ( driver );
+        PageFactory.initElements ( driver, this );
+
+    }
+
+
+    //a Category field
+    @FindBy (name = "category_id")
+    private WebElement category;
+
+    //a Reproducibility field
+    @FindBy (name = "reproducibility")
+    private WebElement reproducibility;
+
+    // a Severity field
+    @FindBy (name = "severity")
+    private WebElement severity;
+
+    // a  Priority field
+    @FindBy (name = "priority")
+    private WebElement priority;
+
+    // Select Profile field
+    @FindBy (name = "handler_id")
+    private WebElement select_profile;
+
+    //Select Platform field
+    @FindBy (id = "platform")
+    private WebElement platform;
+
+    //Select OS field
+    @FindBy (id = "os")
+    private WebElement os;
+
+
+    @FindBy (id = "os_build")
+    private WebElement os_build;
+
+    @FindBy (name = "handler_id")
+    private WebElement assign_to;
+
+    @FindBy (name = "summary")
+    private WebElement summary;
+
+    @FindBy (name = "description")
+    private WebElement description;
+
+    @FindBy (name = "steps_to_reproduce")
+    private WebElement steps_to_reproduce;
+
+    @FindBy (name = "additional_info")
+    private WebElement additional_info;
+
+    @FindBy (name = "ufile[]")
+    private WebElement ufile;
+
+    @FindBy (name = "view_state")
+    private WebElement view_state;
+
+    @FindBy (css = "input.button")
+    private WebElement submit_report;
+
+
+    public void clickFields() {
+        category.click ();
+        reproducibility.click ();
+        severity.click ();
+        priority.click ();
+        select_profile.click ();
+        platform.click ();
+        os.click ();
+        os_build.click ();
+        assign_to.click ();
+        summary.click ();
+        description.click ();
+        steps_to_reproduce.click ();
+        additional_info.click ();
+        //ufile.click ();
+        submit_report.click ();
+
+    }
+
+
+}
+
