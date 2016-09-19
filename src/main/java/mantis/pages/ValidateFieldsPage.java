@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Created by sveta on 19.09.16.
- * <p>
  * to be countinued
  */
 public class ValidateFieldsPage extends AbstractPage {
