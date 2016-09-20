@@ -56,12 +56,12 @@ public class LoginPage extends AbstractPage {
         this.openUrl();
         userName.clear();
         userName.sendKeys("manager_auto");
-        //log.debug("Login as Manager was entered: {}", userName);
+        log.debug("Login as Manager was entered: {}", userName);
         password.clear();
         password.sendKeys("Manager1");
-        //log.debug("Pass as Manager was entered: {}", password);
+        log.debug("Pass as Manager was entered: {}", password);
         loginButton.click();
-        //log.info("The 'Login' button was submited");
+        log.info("The 'Login' button was submited");
         return this;
     }
 
@@ -70,12 +70,12 @@ public class LoginPage extends AbstractPage {
         this.openUrl();
         userName.clear();
         userName.sendKeys("admin_auto");
-        //log.debug("Login as Admin was entered: {}", userName);
+        log.debug("Login as Admin was entered: {}", userName);
         password.clear();
         password.sendKeys("Administr1");
-        //log.debug("Pass as Admin was entered: {}", password);
+        log.debug("Pass as Admin was entered: {}", password);
         loginButton.click();
-        //log.info("The 'Login' button was submited");
+        log.info("The 'Login' button was submited");
         return this;
     }
 
