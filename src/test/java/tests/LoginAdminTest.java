@@ -2,7 +2,7 @@ package tests;
 
 import mantis.for_tests.BaseTest;
 import mantis.pages.LoginPage;
-import mantis.pages.SuccessfulLoginPage;
+import mantis.pages.MyViewPage;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -11,7 +11,6 @@ import org.testng.annotations.Test;
  * Created by Loki_ on 02-Sep-16.
  */
 public class LoginAdminTest extends BaseTest {
-    private WebDriver driver;
     public static String expectedResult = "Logout";
 
     @Test
@@ -23,10 +22,9 @@ public class LoginAdminTest extends BaseTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        SuccessfulLoginPage sucLogin = new SuccessfulLoginPage(driver);
-        sucLogin.clickLogOut();
-        LoginPage actualResult = logPass.textLoginButton();
+        MyViewPage logout=new MyViewPage(getDriver());
+        String actualResult = logout.getLogoutText();
 
-        Assert.assertEquals("Login as Admin", actualResult, expectedResult);
+        Assert.assertEquals(actualResult, expectedResult, "Login as Admin");
     }
 }
