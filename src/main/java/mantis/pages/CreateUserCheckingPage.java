@@ -1,6 +1,5 @@
 package mantis.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,9 +8,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-public class CreateUserChecking extends AbstractPage {
+public class CreateUserCheckingPage extends AbstractPage {
     public WebDriver driver;
-    private static Logger log = LoggerFactory.getLogger(CreateUserChecking.class);
+    private static Logger log = LoggerFactory.getLogger(CreateUserCheckingPage.class);
 
     // Login
     @FindBy(name="username")
@@ -37,19 +36,33 @@ public class CreateUserChecking extends AbstractPage {
     @FindBy(xpath = "//div[text()[contains(.,'Password successfully updated')]]")
     WebElement success;
 
-    public CreateUserChecking(WebDriver driver) {
+    @FindBy (xpath = "//a[text()[contains(.,'Logout')]]")
+    WebElement logOut;
+
+
+    public CreateUserCheckingPage(WebDriver driver) {
 
         super(driver);
         PageFactory.initElements(driver, this);
     }
+    public CreateUserCheckingPage goToCreateUser (){
+        new LoginPage(getDriver()).clickLoginAdmin();//enter as admin
+        log.info("Enter as admin was successfull");
+        new MyViewPage(getDriver()).goToManagePage();
+        new ManagePage(getDriver()).goToManageUsersPage();
+        new ManageUserPage(getDriver()).goToCreateUserCheckingPage();
+        return this;}
 
-    public WebElement creationChecking(String newName, String newEmail, By report) {
+    public String creationChecking(String newName, String newEmail) {
+        this.goToCreateUser();
         userName.clear();
         userName.sendKeys(newName);
         email.clear();
         email.sendKeys(newEmail);
         createUserButton.click();
-        return driver.findElement(report);
+        String ddd=new WrongUserCreationPage(getDriver()).getMistakeText();
+        logOut.click();
+        return ddd;
     }
 
 }

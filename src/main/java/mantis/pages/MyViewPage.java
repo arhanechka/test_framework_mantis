@@ -14,14 +14,15 @@ import org.slf4j.LoggerFactory;
 public class MyViewPage extends AbstractPage{
     private WebDriver driver;
     private static Logger log = LoggerFactory.getLogger(MyViewPage.class);
-
+ 
 
     //The  "Manage" tab
 
     @FindBy(linkText = "Manage")
     private WebElement manageTab;
 
-
+    @FindBy(linkText = "Logout")
+    private WebElement logoutLink;
 
     public MyViewPage (WebDriver driver) {
         super(driver);
@@ -35,6 +36,18 @@ public class MyViewPage extends AbstractPage{
         return this;
 
     }
+    public MyViewPage goToManagePage () {
+        manageTab.click();
+        log.info("The 'Manage' tab was clicked");
+        return this;
+
+    }
+    public String getLogoutText(){
+        String logout=logoutLink.getText();
+        logoutLink.click();
+        return logout;
+    }
+
 
 }
 

@@ -13,7 +13,7 @@ import java.io.IOException;
  */
 public class BaseTestCase extends BaseTest{
 
-    public CreateUserChecking createUserChecking;
+    public CreateUserCheckingPage createUserChecking;
     public LoginPage loginPage;
     public ManagePage managePage;
     public ManageProjectsPage manageProjectsPage;
@@ -21,12 +21,13 @@ public class BaseTestCase extends BaseTest{
     public PasswordConfirm passwordConfirm;
     public SuccessfulLoginPage successfulLoginPage;
     public CreateNewProjectPage createNewProjectPage;
-
+    public ManageUserPage manageUserPage;
+    public WrongUserCreationPage wrongUserCreationPage;
     @BeforeMethod
     public void getLogPage() {
 
-        createUserChecking = new CreateUserChecking(getDriver());
-        PageFactory.initElements(getDriver(), CreateUserChecking.class);
+        createUserChecking = new CreateUserCheckingPage(getDriver());
+        PageFactory.initElements(getDriver(), CreateUserCheckingPage.class);
 
         loginPage = new LoginPage(getDriver());
         PageFactory.initElements(getDriver(), LoginPage.class);
@@ -49,6 +50,11 @@ public class BaseTestCase extends BaseTest{
         createNewProjectPage = new CreateNewProjectPage(getDriver());
         PageFactory.initElements(getDriver(), CreateNewProjectPage.class);
 
+        manageUserPage = new ManageUserPage(getDriver());
+        PageFactory.initElements(getDriver(), ManageUserPage.class);
+
+        wrongUserCreationPage = new WrongUserCreationPage(getDriver());
+        PageFactory.initElements(getDriver(), WrongUserCreationPage.class);
     }
 
     @BeforeClass

@@ -21,10 +21,19 @@ public class ManagePage extends AbstractPage {
     @FindBy(linkText = "Manage Projects")
     private WebElement manageProjectsLink;
 
+    @FindBy(linkText = "Manage Users")
+    private WebElement manageUsersLink;
+
     public ManagePage(WebDriver driver) {
         super (driver);
         PageFactory.initElements(driver, this);
 
+    }
+
+    public ManagePage goToManageUsersPage () {
+        manageUsersLink.click();
+        log.info("The 'ManageUsers' link was clicked");
+        return this;
     }
 
     private ManagePage goToManageProjectsPage (WebDriver driver) {
