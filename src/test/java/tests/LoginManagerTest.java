@@ -1,16 +1,15 @@
 package tests;
 
-import mantis.for_tests.BaseTest;
+import mantis.for_tests.BaseTestCase;
 import mantis.pages.LoginPage;
 import mantis.pages.MyViewPage;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 /**
  * Created by Loki_ on 02-Sep-16.
  */
-public class LoginManagerTest extends BaseTest {
+public class LoginManagerTest extends BaseTestCase {
     public static String expectedResult = "Logout";
 
     @Test
@@ -25,6 +24,6 @@ public class LoginManagerTest extends BaseTest {
         MyViewPage logout=new MyViewPage(getDriver());
         String actualResult = logout.getLogoutText();
 
-        Assert.assertEquals(expectedResult, actualResult, "Login as Manager");
+        Assert.assertEquals(actualResult, expectedResult, "Login as Manager");
     }
 }
