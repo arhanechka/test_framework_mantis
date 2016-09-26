@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -24,6 +25,8 @@ public class BaseTestCase extends BaseTest{
     public ManageUserPage manageUserPage;
     public WrongUserCreationPage wrongUserCreationPage;
     public ValidateFieldsPage validateFieldsPage;
+    public ManageGlobalProfilesPage manageGlobalProfilesPage;
+
     @BeforeMethod
     public void getLogPage() {
 
@@ -59,10 +62,14 @@ public class BaseTestCase extends BaseTest{
 
         validateFieldsPage = new ValidateFieldsPage(getDriver());
         PageFactory.initElements(getDriver(), ValidateFieldsPage.class);
+
+        manageGlobalProfilesPage = new ManageGlobalProfilesPage(getDriver());
+        PageFactory.initElements(getDriver(), ManageGlobalProfilesPage.class);
     }
 
     @BeforeClass
     public void setUp() throws IOException {
         chooseBrowsers();
+        getDriver().manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     }
 }
