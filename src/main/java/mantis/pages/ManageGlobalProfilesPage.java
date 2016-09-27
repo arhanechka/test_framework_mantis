@@ -1,5 +1,6 @@
 package mantis.pages;
 
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -86,9 +87,15 @@ public class ManageGlobalProfilesPage extends AbstractPage {
 
     //select created profile meth
     public ManageGlobalProfilesPage selectCreatedOSProfile() {
-        select = new Select(profile);
-        select.selectByVisibleText("linux Ubuntu 13.04LTS");
-        log.info("linux Ubuntu 13.04LTS is selected");
+        try{
+            select = new Select(profile);
+            select.selectByVisibleText("linux Ubuntu 13.04LTS");
+            log.info("linux Ubuntu 13.04LTS is selected");
+        }
+        catch(StaleElementReferenceException e)
+        {
+            log.info("catched StaleElementReferenceException e");
+        }
         return this;
     }
 
