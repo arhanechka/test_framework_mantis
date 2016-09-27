@@ -8,11 +8,11 @@ import org.openqa.selenium.support.PageFactory;
 /**
  * Created by sveta on 24.09.16.
  */
-public class WrongValidateBugReportPage extends AbstractPage {
+public class WrongValidateFieldsPage extends AbstractPage {
     @FindBy (className="form-title")
     WebElement mistakeValidate;
 
-    public WrongValidateBugReportPage (WebDriver driver) {
+    public WrongValidateFieldsPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);}
 

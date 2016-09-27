@@ -3,26 +3,32 @@ package mantis.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * Created by sveta on 19.09.16.
- * to be countinued
  */
 public class ValidateFieldsPage extends AbstractPage {
 
 
-    private static Logger log = LoggerFactory.getLogger ( ValidateFieldsPage.class );
+    private static Logger log = LoggerFactory.getLogger (ValidateFieldsPage.class);
     public WebDriver driver;
 
-    public ValidateFieldsPage(WebDriver driver) {
+    public ValidateFieldsPage(WebDriver driver)
 
-        super ( driver );
-        PageFactory.initElements ( driver, this );
+    {
+
+        super (driver);
+        PageFactory.initElements (driver, this);
 
     }
+
+    //go to 'Report issue'
+    @FindBy (how = How.LINK_TEXT, linkText = "Report Issue")
+    private WebElement reportIssue;
 
 
     //a Category field
@@ -62,21 +68,21 @@ public class ValidateFieldsPage extends AbstractPage {
     @FindBy (name = "handler_id")
     private WebElement assign_to;
 
-    // a summary field
+    // a summaryText field
     @FindBy (name = "summary")
-    private WebElement summary;
+    private WebElement summaryText;
 
-    // a description field
+    // a descriptionText field
     @FindBy (name = "description")
-    private WebElement description;
+    private WebElement descriptionText;
 
     // steps to reproduce
     @FindBy (name = "steps_to_reproduce")
-    private WebElement steps_to_reproduce;
+    private WebElement steps_to_reproduceText;
 
     //a add info field
     @FindBy (name = "additional_info")
-    private WebElement additional_info;
+    private WebElement additional_infoText;
 
     //a  upload file
     @FindBy (name = "ufile[]")
@@ -93,39 +99,48 @@ public class ValidateFieldsPage extends AbstractPage {
     private WebElement submit_report;
 
 
-    public void clickFields() {
-        category.click ();
-        reproducibility.click ();
-        severity.click ();
-        priority.click ();
-        select_profile.click ();
-        platform.click ();
-        os.click ();
-        os_build.click ();
-        assign_to.click ();
-        summary.click ();
-        description.click ();
-        steps_to_reproduce.click ();
-        additional_info.click ();
-        //ufile.click ();
+    // метод обязательных к заполнению полей ввода багрепорта
+
+    public String fillOutRequiredFields(String summary,
+                                        String description,
+                                        String steps,
+                                        String addInfo) {
+
+        new LoginPage (getDriver ()).clickLoginAdmin ();//enter as admin
+        log.info ("Enter as admin was successfull");
+        new MyViewPage (getDriver ()).goReportIssuePage ();//go to Report Issue page
+        log.info ("go to Report Issue page");
+        new ValidateFieldsPage (getDriver ());
+        //driver.findElement (By.name ("category_id"));//.selectByVisibleText ("[All Projects] General");
+       //category.click ();
+        log.info ("select");
+        summaryText.sendKeys (summary);
+        log.info ("input summary");
+        descriptionText.sendKeys (description);
+        log.info ("input description");
+        steps_to_reproduceText.sendKeys (steps);
+        log.info ("input steps");
+        additional_infoText.sendKeys (addInfo);
+        log.info ("input addInfo");
         submit_report.click ();
-
-    }
-
-    public void inputData(WebDriver driver,
-                          String summary,
-                          String description,
-                          String steps,
-                          String addInfo) {
+        log.info ("Finish of method");
+        new WrongValidateFieldsPage (getDriver ());
+        String errorText = new WrongValidateFieldsPage (getDriver ()).getMistakeText ();
 
 
-    }
-
-    public void selectItems() {
-
-
+        return errorText;
     }
 
 
 }
+
+
+
+
+
+
+
+
+
+
 
