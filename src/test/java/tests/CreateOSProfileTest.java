@@ -90,8 +90,8 @@ public class CreateOSProfileTest extends BaseTestCase {
                 .openReportIssueForm()
                 .selectCreatedOSProfile();
 
-        Assert.assertEquals(manageGlobalProfilesPage
-                .getCreatedProfileContent(),"linux Ubuntu 13.04LTS", "profile content is linux Ubuntu 13.04LTS");
+        Assert.assertTrue(manageGlobalProfilesPage
+                .getCreatedProfileContent().contains("linux Ubuntu 13.04LTS"), "profile content is linux Ubuntu 13.04LTS");
 
         manageGlobalProfilesPage
                 .openCreateOSProfileForm()
