@@ -2,6 +2,7 @@ package mantis.utils;
 
 
 
+        import mantis.pages.AbstractPage;
         import mantis.pages.PasswordConfirm;
         import org.openqa.selenium.By;
         import org.openqa.selenium.NoSuchElementException;
@@ -19,8 +20,8 @@ package mantis.utils;
 /**
  * Created by Anya 04.09.2016
  */
-public class MailRuReader {
-    private WebDriver driver;
+public class MailRuReader extends AbstractPage{
+
     private  final String URL = "https://mail.ru/";
     private  final String login ="new_tests_for_selenium";
     private final String pas ="ABC_TESTERS";
@@ -57,16 +58,24 @@ public class MailRuReader {
     @FindBy(xpath = "//div[@class='b-toolbar__btn b-toolbar__btn_false b-toolbar__btn_adaptive b-toolbar__btn_adaptive_rdm-mid b-toolbar__btn_false b-toolbar__btn_grouped b-toolbar__btn_grouped_first js-shortcut']")
     private WebElement delete;
 
+
     public MailRuReader(WebDriver driver) {
+        super(driver);
         PageFactory.initElements(driver, this);
-        this.driver = driver;
+
     }
 
-public void waitingLetter(){
-    letter=(new WebDriverWait(driver,15000).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[text()[contains(.,'[MantisBT] Account registration')]]"))));
-}
-    public void mailEntering() {
-        driver.get(URL);
+    public MailRuReader openUrl() {
+        getDriver().get(URL);
+        return this;
+    }
+
+    public void waitingLetter(){
+    letter=(new WebDriverWait(getDriver(),15000).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[text()[contains(.,'[MantisBT] Account registration')]]"))));
+    }
+
+     public void mailEntering() {
+        this.openUrl();
         loginLoc.sendKeys(login);
         passwordLoc.sendKeys(pas);
         submitButton.click();}
@@ -74,11 +83,11 @@ public void waitingLetter(){
     public void letterSearch()  {
         mailEntering();
         log.info("Enter to mail.ru inbox was successfull");
-        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        getDriver().manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         waitingLetter();
         try{
             letter.click();
-            driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+            getDriver().manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
             log.info("Letter from mantis was found"); }
         catch (NoSuchElementException e){}
     }
@@ -87,21 +96,21 @@ public void waitingLetter(){
         try{letterSearch();
             activation.click();
             log.info("Link from letter from mantis was found and clicked");
-            driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+            getDriver().manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         }
         catch (NoSuchElementException e){}
-        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-        windowHadndler=driver.getWindowHandle();
-        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        for (String winHandler: driver.getWindowHandles()){
-            driver.switchTo().window(winHandler);}
+        getDriver().manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+        windowHadndler=getDriver().getWindowHandle();
+        getDriver().manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        for (String winHandler: getDriver().getWindowHandles()){
+            getDriver().switchTo().window(winHandler);}
         log.info("Change window to mantis");
-        return new PasswordConfirm(driver);
+        return new PasswordConfirm(getDriver());
     }
 
     public void letterDeleting() {
-        driver.switchTo().window(windowHadndler);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        getDriver().switchTo().window(windowHadndler);
+        getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         delete.click();
         log.info("Actication letter in mail.ru was deleted");
     }

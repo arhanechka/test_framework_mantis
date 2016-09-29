@@ -22,13 +22,13 @@ public class CreateNewUserTest extends BaseTestCase {
     By mistakeLocator=By.className("form-title");
     private  final String email ="selmanium@mail.ru";
     private  String randomLogin=random.getNewRandomName()+"_auto";
-    private  static MailRuReader activator; //class for work with mail.ru
-    private  static PasswordConfirm passConfirm; //pageObject where password confirms
+
+    private  PasswordConfirm passConfirm; //pageObject where password confirms
     private static Logger log = LoggerFactory.getLogger(CreateNewUserTest.class);
 
 
 
-       // activator=new MailRuReader(getDriver());
+
 
 
 // Checking enter with empty dates
@@ -60,18 +60,18 @@ public class CreateNewUserTest extends BaseTestCase {
         log.info("login "+randomLog+" and email "+randomPassword+" were typed");
     }
     //Checking enter with random login and email mail.ru
-  /*  @Test
+    @Test
     public void withRightDates() {
         Assert.assertEquals(createUserChecking.creationChecking(randomLogin,email, By.xpath("//div[@align='center']")),"Created user "+randomLogin+" with an access level of reporter\n[ Proceed ]");
         log.info("login "+randomLogin+" and email "+email+" were typed");
 
-        passConfirm=activator.letterActivation();
+        passConfirm=mailRuReader.letterActivation();
         String randomPassword=random.getNewRandomName();
         Assert.assertEquals(passConfirm.passwordEntering(randomPassword),"Password successfully updated\n" +"Operation successful.\n" + "[ Proceed ]");
         log.info("Password "+randomPassword+ " was successfully typed and user was created correctly");
-        activator.letterDeleting();
+        mailRuReader.letterDeleting();
 
    }
 
 
- */}
+ }
