@@ -25,6 +25,7 @@ public class BaseTestCase extends BaseTest{
     public WrongUserCreationPage wrongUserCreationPage;
     public ValidateFieldsPage validateFieldsPage;
     public ViewIssuesPage viewIssuesPage;
+    public ManageGlobalProfilesPage manageGlobalProfilesPage;
     @BeforeMethod
     public void getLogPage() {
 
@@ -63,6 +64,9 @@ public class BaseTestCase extends BaseTest{
 
         viewIssuesPage = new ViewIssuesPage (getDriver ());
         PageFactory.initElements(getDriver(),ViewIssuesPage.class);
+
+        manageGlobalProfilesPage = new ManageGlobalProfilesPage(getDriver());
+        PageFactory.initElements(getDriver(), ManageGlobalProfilesPage.class);
     }
 
     @BeforeClass
