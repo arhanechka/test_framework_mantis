@@ -1,5 +1,6 @@
 package mantis.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -65,4 +66,13 @@ public class CreateUserCheckingPage extends AbstractPage {
         return ddd;
     }
 
+    public String creationChecking(String newName, String newEmail, By right) {
+        this.goToCreateUser();
+        userName.clear();
+        userName.sendKeys(newName);
+        email.clear();
+        email.sendKeys(newEmail);
+        createUserButton.click();
+        WebElement rrr=getDriver().findElement(right);
+   return rrr.getText(); }
 }
