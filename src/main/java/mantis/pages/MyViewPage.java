@@ -24,6 +24,11 @@ public class MyViewPage extends AbstractPage{
     @FindBy(linkText = "Logout")
     private WebElement logoutLink;
 
+
+    //The 'Report Issue' link on 'MyView' page
+    @FindBy(linkText = "Report Issue")
+    private WebElement reportIssueLink;
+
     public MyViewPage (WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
@@ -46,6 +51,14 @@ public class MyViewPage extends AbstractPage{
         String logout=logoutLink.getText();
         logoutLink.click();
         return logout;
+    }
+
+    //Go to 'ReportIssue' page'
+    public MyViewPage goReportIssuePage () {
+        reportIssueLink.click();
+        log.info("The 'Report Issue' link has been clicked");
+        return this;
+
     }
 
 
