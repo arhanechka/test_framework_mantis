@@ -25,7 +25,7 @@ public class BaseTestCase extends BaseTest{
     public ManageUserPage manageUserPage;
     public WrongUserCreationPage wrongUserCreationPage;
     public ValidateFieldsPage validateFieldsPage;
-    //public ViewIssuesPage viewIssuesPage;
+   public WrongValidateFieldsPage wrongValidateFieldsPage;
     public ManageGlobalProfilesPage manageGlobalProfilesPage;
     public MailRuReader mailRuReader;
     @BeforeMethod
@@ -64,8 +64,8 @@ public class BaseTestCase extends BaseTest{
         validateFieldsPage = new ValidateFieldsPage(getDriver());
         PageFactory.initElements(getDriver(), ValidateFieldsPage.class);
 
-        //viewIssuesPage = new ViewIssuesPage (getDriver ());
-        //PageFactory.initElements(getDriver(),ViewIssuesPage.class);
+        wrongValidateFieldsPage = new WrongValidateFieldsPage (getDriver ());
+        PageFactory.initElements(getDriver(), WrongValidateFieldsPage.class);
 
         manageGlobalProfilesPage = new ManageGlobalProfilesPage(getDriver());
         PageFactory.initElements(getDriver(), ManageGlobalProfilesPage.class);
