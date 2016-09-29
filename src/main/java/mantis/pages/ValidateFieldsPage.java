@@ -99,6 +99,10 @@ public class ValidateFieldsPage extends AbstractPage {
     @FindBy (css = "input.button")
     private WebElement submit_report;
 
+    //LogOut
+    @FindBy (linkText = "Logout")
+    private WebElement logout;
+
 
     // метод обязательных к заполнению полей ввода багрепорта
 
@@ -139,9 +143,13 @@ public class ValidateFieldsPage extends AbstractPage {
         log.info ("Finish of method");
         new WrongValidateFieldsPage (getDriver ());
         String errorText = new WrongValidateFieldsPage (getDriver ()).getMistakeText ();
-
-
         return errorText;
+    }
+
+    public void logOut(){
+        logout.click ();
+
+
     }
 
 

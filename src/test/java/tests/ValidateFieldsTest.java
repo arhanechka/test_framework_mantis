@@ -22,6 +22,7 @@ public class ValidateFieldsTest extends BaseTestCase {
                 "test addInfo");
         driver.manage ().timeouts ().implicitlyWait (1, TimeUnit.SECONDS);
         Assert.assertEquals (driver.getTitle (), "View Issues - MantisBT");
+        validateFieldsPage.logOut ();
     }
 
 
@@ -35,6 +36,8 @@ public class ValidateFieldsTest extends BaseTestCase {
                 "test addInfo");
         driver.manage ().timeouts ().implicitlyWait (1, TimeUnit.SECONDS);
         Assert.assertEquals (driver.getTitle (), "MantisBT");
+        validateFieldsPage.logOut ();
+
     }
 
 
@@ -44,5 +47,11 @@ public class ValidateFieldsTest extends BaseTestCase {
         Assert.assertEquals (validateFieldsPage.
                         fillOutRequiredFields ("", "", "", ""),
                 "APPLICATION ERROR #11");
+        validateFieldsPage.logOut ();
+
+
     }
+
+
+
 }
