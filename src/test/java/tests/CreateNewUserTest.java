@@ -22,7 +22,7 @@ public class CreateNewUserTest extends BaseTestCase {
     By mistakeLocator=By.className("form-title");
     private  final String email ="selmanium@mail.ru";
     private  String randomLogin=random.getNewRandomName()+"_auto";
-    private  MailRuReader activator=new MailRuReader(driver);; //class for work with mail.ru
+
     private  PasswordConfirm passConfirm; //pageObject where password confirms
     private static Logger log = LoggerFactory.getLogger(CreateNewUserTest.class);
 
@@ -65,11 +65,11 @@ public class CreateNewUserTest extends BaseTestCase {
         Assert.assertEquals(createUserChecking.creationChecking(randomLogin,email, By.xpath("//div[@align='center']")),"Created user "+randomLogin+" with an access level of reporter\n[ Proceed ]");
         log.info("login "+randomLogin+" and email "+email+" were typed");
 
-        passConfirm=activator.letterActivation();
+        passConfirm=mailRuReader.letterActivation();
         String randomPassword=random.getNewRandomName();
         Assert.assertEquals(passConfirm.passwordEntering(randomPassword),"Password successfully updated\n" +"Operation successful.\n" + "[ Proceed ]");
         log.info("Password "+randomPassword+ " was successfully typed and user was created correctly");
-        activator.letterDeleting();
+        mailRuReader.letterDeleting();
 
    }
 

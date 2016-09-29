@@ -1,6 +1,7 @@
 package mantis.for_tests;
 
 import mantis.pages.*;
+import mantis.utils.MailRuReader;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -24,7 +25,8 @@ public class BaseTestCase extends BaseTest{
     public ManageUserPage manageUserPage;
     public WrongUserCreationPage wrongUserCreationPage;
     public ValidateFieldsPage validateFieldsPage;
-    public ViewIssuesPage viewIssuesPage;
+    public MailRuReader mailRuReader;
+   // public ViewIssuesPage viewIssuesPage;
     @BeforeMethod
     public void getLogPage() {
 
@@ -63,6 +65,9 @@ public class BaseTestCase extends BaseTest{
 
         viewIssuesPage = new ViewIssuesPage (getDriver ());
         PageFactory.initElements(getDriver(),ViewIssuesPage.class);
+
+        mailRuReader = new MailRuReader(getDriver());
+        PageFactory.initElements(getDriver(), MailRuReader.class);
     }
 
     @BeforeClass

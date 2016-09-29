@@ -58,19 +58,23 @@ public class MailRuReader extends AbstractPage{
     @FindBy(xpath = "//div[@class='b-toolbar__btn b-toolbar__btn_false b-toolbar__btn_adaptive b-toolbar__btn_adaptive_rdm-mid b-toolbar__btn_false b-toolbar__btn_grouped b-toolbar__btn_grouped_first js-shortcut']")
     private WebElement delete;
 
+
     public MailRuReader(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
 
     }
+
     public MailRuReader openUrl() {
         getDriver().get(URL);
         return this;
     }
-public void waitingLetter(){
+
+    public void waitingLetter(){
     letter=(new WebDriverWait(getDriver(),15000).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[text()[contains(.,'[MantisBT] Account registration')]]"))));
-}
-    public void mailEntering() {
+    }
+
+     public void mailEntering() {
         this.openUrl();
         loginLoc.sendKeys(login);
         passwordLoc.sendKeys(pas);
