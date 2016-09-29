@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -111,8 +112,20 @@ public class ValidateFieldsPage extends AbstractPage {
         new MyViewPage (getDriver ()).goReportIssuePage ();//go to Report Issue page
         log.info ("go to Report Issue page");
         new ValidateFieldsPage (getDriver ());
-        //driver.findElement (By.name ("category_id"));//.selectByVisibleText ("[All Projects] General");
-       //category.click ();
+        Select statusCategory = new Select (category);
+        int status = 3;
+        switch (status) {
+            case 1:
+                statusCategory.selectByValue ("0");
+                break;
+            case 2:
+                statusCategory.selectByValue ("1");
+                break;
+            case 3:
+                statusCategory.selectByValue ("5");
+                break;
+        }
+        log.info("The status of category has been selected: {}", status);
         log.info ("select");
         summaryText.sendKeys (summary);
         log.info ("input summary");
