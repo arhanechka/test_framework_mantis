@@ -14,11 +14,12 @@ public class WrongValidateFieldsPage extends AbstractPage {
 
     public WrongValidateFieldsPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(driver, this);}
+        PageFactory.initElements(driver, this);
+    }
 
     public String getMistakeText (){
 
-        return mistakeValidate.getText();
+  return mistakeValidate.getText();
     }
 }
 

@@ -1,12 +1,11 @@
 package tests;
 
 import mantis.for_tests.BaseTestCase;
+import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by sveta on 19.09.16.
@@ -14,29 +13,37 @@ import java.util.concurrent.TimeUnit;
 public class ValidateFieldsTest extends BaseTestCase {
     private static Logger log = LoggerFactory.getLogger (ValidateFieldsTest.class);
 
-    @Test
-    public void TestPassRequeriedFields() {
-        validateFieldsPage.fillOutRequiredFields (
-                "test summ",
-                "test descr", "test steps",
-                "test addInfo");
-        driver.manage ().timeouts ().implicitlyWait (1, TimeUnit.SECONDS);
-        Assert.assertEquals (driver.getTitle (), "View Issues - MantisBT");
-        validateFieldsPage.logOut ();
+    protected WebDriver getDriver() {
+        return driver;
     }
 
-
-    //checking - not all of the required fields are mandatory
     @Test
+    public void TestPassRequeriedFields() throws InterruptedException {
+        validateFieldsPage.fillOutRequiredFields (
+                "test summ",
+                "test descr",
+                "test steps",
+                "test addInfo");
+               Thread.sleep (3000);
+        Assert.assertEquals (viewIssuePage.getTitle (), "View Issues - MantisBT");
+        viewIssuePage.logOut ();
+        log.info ("TestPassRequeriedFields");
+
+
+    }
+//"View Issues - MantisBT");
+
+        @Test
     public void TestReportFailed() {
         validateFieldsPage.fillOutRequiredFields (
                 "test summ",
                 "test descr",
                 "",
                 "test addInfo");
-        driver.manage ().timeouts ().implicitlyWait (1, TimeUnit.SECONDS);
-        Assert.assertEquals (driver.getTitle (), "MantisBT");
+        validateFieldsPage.waitFor ();
+        Assert.assertEquals (validateFieldsPage.getTitle (), "MantisBT");
         validateFieldsPage.logOut ();
+        log.info ("TestPassRequeriedFields");
 
     }
 
@@ -44,13 +51,16 @@ public class ValidateFieldsTest extends BaseTestCase {
 
     @Test
     public void TestEmptyFields() {
-        Assert.assertEquals (validateFieldsPage.
-                        fillOutRequiredFields ("", "", "", ""),
-                "APPLICATION ERROR #11");
+         validateFieldsPage.fillOutRequiredFields ("","","","");
+
+         Assert.assertEquals (validateFieldsPage.getTitle (), "MantisBT");
         validateFieldsPage.logOut ();
+        log.info ("TestPassRequeriedFields");
 
 
     }
+
+
 
 
 

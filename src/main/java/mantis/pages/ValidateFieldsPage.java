@@ -9,6 +9,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Created by sveta on 19.09.16.
  */
@@ -106,10 +108,10 @@ public class ValidateFieldsPage extends AbstractPage {
 
     // метод обязательных к заполнению полей ввода багрепорта
 
-    public String fillOutRequiredFields(String summary,
-                                        String description,
-                                        String steps,
-                                        String addInfo) {
+    public ValidateFieldsPage fillOutRequiredFields(String summary,
+                                                    String description,
+                                                    String steps,
+                                                    String addInfo) {
 
         new LoginPage (getDriver ()).clickLoginAdmin ();//enter as admin
         log.info ("Enter as admin was successfull");
@@ -129,7 +131,7 @@ public class ValidateFieldsPage extends AbstractPage {
                 statusCategory.selectByValue ("5");
                 break;
         }
-        log.info("The status of category has been selected: {}", status);
+        log.info ("The status of category has been selected: {}", status);
         log.info ("select");
         summaryText.sendKeys (summary);
         log.info ("input summary");
@@ -141,13 +143,24 @@ public class ValidateFieldsPage extends AbstractPage {
         log.info ("input addInfo");
         submit_report.click ();
         log.info ("Finish of method");
-        new WrongValidateFieldsPage (getDriver ());
-        String errorText = new WrongValidateFieldsPage (getDriver ()).getMistakeText ();
-        return errorText;
+        return this;
+
+
     }
 
-    public void logOut(){
+    public void logOut() {
         logout.click ();
+
+
+    }
+
+    public void waitFor() {
+
+        getDriver ().manage ().timeouts ().implicitlyWait (20, TimeUnit.SECONDS);
+    }
+
+    public String getTitle() {
+        return (getDriver ().getTitle ());
 
 
     }
